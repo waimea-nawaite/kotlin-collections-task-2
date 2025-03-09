@@ -120,11 +120,12 @@ fun setupCages(): MutableList<String> {
  * Put a given monkey into the specified cage number (1...MAX)
  */
 fun placeMonkeyInCage(cageList: MutableList<String>, cageNum: Int, name: String) {
+    println("Place a monkey in cage: ")
+    val userInput = readln()
+    cageList.add(0, userInput)
     println("+++ Putting $name into cage $cageNum")
 
-    
 }
-
 
 /**
  * Display a list of all cages in the given list in the format:
@@ -138,8 +139,10 @@ fun placeMonkeyInCage(cageList: MutableList<String>, cageNum: Int, name: String)
  */
 fun listAllCages(cageList: List<String>) {
     println("CAGES")
+    for (i in 0..<NUMCAGES) {
+        println("- Cage ${i + 1}: ${cageList[i]} ")
+    }
 
-    check(false)    // REPLACE THIS WITH YOUR CODE!
 }
 
 
