@@ -121,9 +121,9 @@ fun setupCages(): MutableList<String> {
  */
 fun placeMonkeyInCage(cageList: MutableList<String>, cageNum: Int, name: String) {
     println("Place a monkey in cage: ")
-    val userInput = readln()
-    cageList.add(0, userInput)
     println("+++ Putting $name into cage $cageNum")
+    cageList[cageNum - 1] = name
+
 
 }
 
@@ -139,9 +139,10 @@ fun placeMonkeyInCage(cageList: MutableList<String>, cageNum: Int, name: String)
  */
 fun listAllCages(cageList: List<String>) {
     println("CAGES")
-    for (i in 0..<NUMCAGES) {
+    for (i in 0..<cageList.size) {
         println("- Cage ${i + 1}: ${cageList[i]} ")
     }
+
 
 }
 
@@ -158,7 +159,13 @@ fun listAllCages(cageList: List<String>) {
 fun listAllMonkeys(cageList: List<String>) {
     println("MONKEYS")
 
-    check(false)    // REPLACE THIS WITH YOUR CODE!
+        for (i in 0..<cageList.size) {
+            if (cageList[i] != EMPTY) {
+                println("- ${cageList[i]}")
+            }
+
+        }
+
 }
 
 
@@ -172,8 +179,14 @@ fun listAllMonkeys(cageList: List<String>) {
  */
 fun listEmptyCages(cageList: List<String>) {
     println("EMPTY CAGES")
+    for (i in 0..<cageList.size) {
+        if (cageList[i] == EMPTY) {
+            println("- cage ${i + 1}")
+        }
 
-    check(false)    // REPLACE THIS WITH YOUR CODE!
+    }
+
+
 }
 
 
@@ -192,7 +205,12 @@ fun listEmptyCages(cageList: List<String>) {
 fun listAllMonkeysAndCages(cageList: List<String>) {
     println("MONKEYS & CAGES")
 
-    check(false)    // REPLACE THIS WITH YOUR CODE!
+    for (i in 0.. cageList.size - 1) {
+        if (cageList[i] != EMPTY) {
+            print(cageList[i].padEnd(0))
+            println(": cage ${i + 1}")
+        }
+    }
 }
 
 
@@ -200,8 +218,11 @@ fun listAllMonkeysAndCages(cageList: List<String>) {
  * Returns the number of monkeys found in the given cage list
  */
 fun monkeyCount(cageList: List<String>): Int {
-
-    return 0    // REPLACE THIS WITH YOUR CODE!
+    var count = 0
+    for (i in 0..cageList.size - 1) {
+        if (cageList[i] != EMPTY) count++
+    }
+    return count
 }
 
 
@@ -227,7 +248,12 @@ fun emptyCount(cageList: List<String>): Int {
  */
 fun showMonkeyCages(cageList: List<String>) {
 
-    check(false)    // REPLACE THIS WITH YOUR CODE!
+    println("+--------+--------+--------+--------+--------+--------+--------+--------+")
+    for (i in 0..cageList.size - 1) {
+        print("| Cage ${i + 1}:" .padEnd(0))
+
+
+    }
 }
 
 
